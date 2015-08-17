@@ -1,6 +1,8 @@
 ansible-munin-node
 ==================
 
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-sshd-blue.svg)](https://galaxy.ansible.com/list#/roles/4799)
+
 Role to install & maintain Munin Node
 
 Role Variables
