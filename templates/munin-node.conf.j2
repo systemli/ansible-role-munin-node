@@ -1,0 +1,55 @@
+log_level {{ munin_node_config_log_level }}
+log_file {{ munin_node_config_log_file }}
+pid_file {{ munin_node_config_pid }}
+
+background {{ munin_node_config_background }}
+setsid {{ munin_node_config_setid }}
+
+user {{ munin_node_config_user }}
+group {{ munin_node_config_group }}
+
+# This is the timeout for the whole transaction.
+# Units are in sec. Default is 15 min
+#
+global_timeout {{ munin_node_config_global_timeout }}
+
+# This is the timeout for each plugin.
+# Units are in sec. Default is 1 min
+#
+timeout {{ munin_node_config_timeout }}
+
+# Regexps for files to ignore
+ignore_file [\#~]$
+ignore_file DEADJOE$
+ignore_file \.bak$
+ignore_file %$
+ignore_file \.dpkg-(tmp|new|old|dist)$
+ignore_file \.rpm(save|new)$
+ignore_file \.pod$
+
+# Set this if the client doesn't report the correct hostname when
+# telnetting to localhost, port 4949
+#
+host_name {{ munin_node_config_host_name }}
+
+# A list of addresses that are allowed to connect.  This must be a
+# regular expression, since Net::Server does not understand CIDR-style
+# network notation unless the perl module Net::CIDR is installed.  You
+# may repeat the allow line as many times as you'd like
+
+{{ munin_node_config_allow }}
+
+# If you have installed the Net::CIDR perl module, you can use one or more
+# cidr_allow and cidr_deny address/mask patterns.  A connecting client must
+# match any cidr_allow, and not match any cidr_deny.  Note that a netmask
+# *must* be provided, even if it's /32
+#
+# Example:
+#
+# cidr_allow 127.0.0.1/32
+# cidr_allow 192.0.2.0/24
+# cidr_deny  192.0.2.42/32
+
+# Which address to bind to;
+host {{ munin_node_config_host }}
+port {{ munin_node_config_port }}
