@@ -12,4 +12,6 @@ galaxy_info:
   categories:
     - monitoring
     - system
+  notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
 dependencies: []
