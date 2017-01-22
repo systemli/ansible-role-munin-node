@@ -1,7 +1,7 @@
 ansible-munin-node
 ==================
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin--node-blue.svg)](https://galaxy.ansible.com/list#/roles/4799) [![Build Status](https://travis-ci.org/systemli/ansible-munin-node.svg)](https://travis-ci.org/systemli/ansible-munin-node)
+[![Build Status](https://travis-ci.org/systemli/ansible-munin-node.svg)](https://travis-ci.org/systemli/ansible-munin-node) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin--node-blue.svg)](https://galaxy.ansible.com/systemli/munin-node/)
 
 Role to install & maintain Munin Node
 
@@ -87,14 +87,26 @@ Defaults:
     munin_node_config_host: "*"
     munin_node_config_port: 4949
 
+Download
+--------
+
+Download latest release with `ansible-galaxy`
+
+	ansible-galaxy install systemli.munin-node
+
 Example Playbook
 ----------------
 
     - hosts: servers
       roles:
-         - { role: 0x46616c6b.munin-node }
+         - { role: systemli.munin-node }
 
 License
 -------
 
 GPLv3
+
+Author Information
+------------------
+
+https://www.systemli.org
