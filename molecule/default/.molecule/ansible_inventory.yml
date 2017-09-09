@@ -1,0 +1,14 @@
+# Molecule managed
+
+---
+all:
+  hosts:
+    debian-jessie: &id001
+      ansible_connection: docker
+    debian-stretch: &id002
+      ansible_connection: docker
+ungrouped:
+  hosts:
+    debian-jessie: *id001
+    debian-stretch: *id002
+  vars: {}
