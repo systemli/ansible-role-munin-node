@@ -22,13 +22,13 @@
 - name: ensure extra plugins are present
   git:
     repo: https://github.com/munin-monitoring/contrib
-    dest: /usr/share/munin-plugins
+    dest: /usr/local/share/munin-plugins
   when: munin_node_extra_plugins
   notify: restart munin-node
 
 - name: ensure plugins are present
   file:
-    src: "/usr/share/munin/plugins/{{ item }}"
+    src: "/usr/local/share/munin/plugins/{{ item }}"
     dest: "/etc/munin/plugins/{{ item }}"
     state: link
     force: yes
@@ -45,7 +45,7 @@
 
 - name: ensure extra plugins are present
   file:
-    src: "/usr/share/munin-plugins/plugins/{{ item.path }}"
+    src: "/usr/local/share/munin-plugins/plugins/{{ item.path }}"
     dest: "/etc/munin/plugins/{{ item.name }}"
   with_items: "{{ munin_node_extra_plugins_active }}"
   notify: restart munin-node
