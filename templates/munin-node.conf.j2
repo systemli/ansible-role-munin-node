@@ -1,3 +1,7 @@
+#
+# Example config-file for munin-node
+#
+
 log_level {{ munin_node_config_log_level }}
 log_file {{ munin_node_config_log_file }}
 pid_file {{ munin_node_config_pid }}
@@ -52,4 +56,7 @@ host_name {{ munin_node_config_host_name }}
 
 # Which address to bind to;
 host {{ munin_node_config_host }}
+# host 127.0.0.1
+
+# And which port
 port {{ munin_node_config_port }}

@@ -12,6 +12,7 @@
 #                       individual plugins to find out which variables they
 #                       care about.
 
+
 {% for item in munin_plugin_config %}
 [{{ item.name }}]
 {{ item.vars }}
