@@ -23,6 +23,7 @@
   git:
     repo: https://github.com/munin-monitoring/contrib
     dest: /usr/local/share/munin-plugins
+    update: "{{ munin_node_plugins_git_update }}"
   when: munin_node_extra_plugins
   notify: restart munin-node
 
