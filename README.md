@@ -86,6 +86,7 @@ Defaults:
       allow ^::1$
     munin_node_config_host: "*"
     munin_node_config_port: 4949
+    munin_node_plugins_git_update: "no
 
 Download
 --------
