@@ -102,6 +102,23 @@ Example Playbook
       roles:
          - { role: systemli.munin-node }
 
+Testing & Development
+---------------------
+
+Tests
+-----
+
+For developing and testing the role we use Travis CI, Molecule and Vagrant. On the local environment you can easily test the role with
+
+Run local tests with:
+
+```
+molecule test 
+```
+
+Requires Molecule, Vagrant and `python-vagrant` to be installed.For developing and testing the role we use Travis CI, Molecule and Vagrant. On the local environment you can easily test the role with
+
+
 License
 -------
 

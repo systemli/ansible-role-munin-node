@@ -1,3 +1,5 @@
+---
+
 munin_node_packages:
   - munin-node
   - munin-plugins-extra
