@@ -1,9 +1,8 @@
 ---
 - name: ensure required packages are installed
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ munin_node_packages }}"
     state: present
-  with_items: "{{ munin_node_packages }}"
 
 - name: ensure config is latest
   template:
