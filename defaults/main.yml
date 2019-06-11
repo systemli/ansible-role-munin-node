@@ -25,37 +25,110 @@ munin_node_plugins_disabled:
 munin_node_extra_plugins_active: []
 
 munin_plugin_config:
-  -
-    name: "apt"
+  - name: amavis
+    vars: |
+      group adm
+      env.MUNIN_MKTEMP /bin/mktemp -p /tmp/ $1
+      env.amavislog /var/log/mail.info
+  - name: "apt"
     vars: |
       user root
-  -
-    name: "mysql*"
+  - name: courier_mta_mailqueue
+    vars: |
+      group daemon
+  - name: courier_mta_mailstats
+    vars: |
+      group adm
+  - name: courier_mta_mailvolume
+    vars: |
+      group adm
+  - name: "cps*"
     vars: |
       user root
-      env.mysqlopts --defaults-file=/etc/mysql/debian.cnf
-      env.mysqluser debian-sys-maint
-      env.mysqlconnection DBI:mysql:mysql;mysql_read_default_file=/etc/mysql/debian.cnf
-  -
-    name: "df*"
+  - name: "df*"
     vars: |
       env.warning 92
       env.critical 98
       env.exclude_re ^/run/user
-  -
-    name: "hddtemp_smartctl"
+  - name: exim_mailqueue
+    vars: |
+      group adm, (Debian-exim)
+  - name: exim_mailstats
+    vars: |
+      group adm, (Debian-exim)
+      env.logdir /var/log/exim4/
+      env.logname mainlog
+  - name: "fw_conntrack"
     vars: |
       user root
-  -
-    name: "if_*"
+  - name: "fw_forwarded_local"
     vars: |
       user root
-  -
-    name: "if_err_*"
+  - name: "hddtemp_smartctl"
     vars: |
       user root
-  -
-    name: "ipmi_*"
+  - name: "hddtemp2"
+    vars: |
+      user root
+  - name: "if_*"
+    vars: |
+      user root
+  - name: "if_err_*"
+    vars: |
+      user nobody
+  - name: "ip_*"
+    vars: |
+      user root
+  - name: "ipmi_*"
+    vars: |
+      user root
+  - name: "mysql*"
+    vars: |
+      user root
+      env.mysqlopts --defaults-file=/etc/mysql/debian.cnf
+      env.mysqluser {{ lookup('vars', 'munin_node_mysql_mysqluser_'+ansible_distribution_release,default='debian-sys-maint') }}
+      env.mysqlconnection DBI:mysql:mysql;mysql_read_default_file=/etc/mysql/debian.cnf
+  - name: postfix_mailqueue
+    vars: |
+      user postfix
+  - name: postfix_mailstats
+    vars: |
+      group adm
+  - name: postfix_mailvolume
+    vars: |
+      group adm
+      env.logfile mail.log
+  - name: sendmail_*
+    vars: |
+      user smmta
+  - name: "smart_*"
+    vars: |
+      user root
+  - name: "vlan*"
+    vars: |
+      user root
+  - name: "ejabberd*"
+    vars: |
+      user ejabberd
+      env.statuses available away chat xa
+      env.days 1 7 30
+  - name: "jmx_*"
+    vars: |
+      env.ip 127.0.0.1
+      env.port 5400
+  - name: samba
+    vars: |
+      user root
+  - name: "munin_stats"
+    vars: |
+      user munin
+      group munin
+  - name: "postgres_*"
+    vars: |
+      user postgres
+      env.PGUSER postgres
+      env.PGPORT 5432
+  - name: fail2ban
     vars: |
       user root
 
