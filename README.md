@@ -2,7 +2,7 @@ ansible-munin-node
 ==================
 
 [![Build Status](https://travis-ci.org/systemli/ansible-role-munin-node.svg?branch=master)](https://travis-ci.org/systemli/ansible-role-munin-node)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin--node-blue.svg)](https://galaxy.ansible.com/systemli/munin-node/)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin__node-blue.svg)](https://galaxy.ansible.com/systemli/munin_node/)
 
 Role to install & maintain Munin Node
 
