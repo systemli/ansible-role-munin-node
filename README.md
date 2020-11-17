@@ -1,7 +1,7 @@
 ansible-munin-node
 ==================
 
-[![Build Status](https://travis-ci.org/systemli/ansible-role-munin-node.svg?branch=master)](https://travis-ci.org/systemli/ansible-role-munin-node)
+[![Build Status](https://github.com/systemli/ansible-role-munin-node/workflows/Molecule/badge.svg?branch=master)](https://github.com/systemli/ansible-role-munin-node/actions?query=workflow%3AIntegration)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin__node-blue.svg)](https://galaxy.ansible.com/systemli/munin_node/)
 
 Role to install & maintain Munin Node
@@ -176,20 +176,24 @@ Example Playbook
       roles:
          - { role: systemli.munin_node }
 
+
 Testing & Development
 ---------------------
 
 Tests
 -----
 
-For developing and testing the role we use Travis CI, Molecule and Vagrant. On the local environment you can easily test the role with
+For developing and testing the role we use Github Actions, Molecule, and Vagrant. On the local environment you can easily test the role with
+
+Run local tests with:
 
 ```
-pip install molecule-vagrant ansible-lint yamllint
 molecule test
 ```
 
-This requires [Vagrant](https://www.vagrantup.com/downloads.html) to be installed.
+Requires Molecule, Vagrant and `python-vagrant, molecule-goss, molecule-vagrant` to be installed.For developing and testing the role we use Travis CI, Molecule and Vagrant. On the local environment you can easily test the role with
+
+
 
 License
 -------
