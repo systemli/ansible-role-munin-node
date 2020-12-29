@@ -1,7 +1,7 @@
 ansible-munin-node
 ==================
 
-[![Build Status](https://github.com/systemli/ansible-role-munin-node/workflows/Molecule/badge.svg?branch=master)](https://github.com/systemli/ansible-role-munin-node/actions?query=workflow%3AIntegration)
+[![Build Status](https://github.com/systemli/ansible-role-munin-node/workflows/Integration/badge.svg?branch=master)](https://github.com/systemli/ansible-role-munin-node/actions?query=workflow%3AIntegration)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-munin__node-blue.svg)](https://galaxy.ansible.com/systemli/munin_node/)
 
 Role to install & maintain Munin Node
