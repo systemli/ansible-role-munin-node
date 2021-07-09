@@ -3,6 +3,7 @@
   apt:
     pkg: "{{ munin_node_packages }}"
     state: present
+    cache_valid_time: 600
 
 - name: ensure config is latest
   template:
