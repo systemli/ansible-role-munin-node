@@ -9,12 +9,8 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
+        - bullseye
         - buster
-        - stretch
-        - jessie
-    - name: Ubuntu
-      versions:
-        - trusty
   galaxy_tags:
     - monitoring
     - system

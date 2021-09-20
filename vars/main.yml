@@ -1,3 +1,4 @@
 ---
+munin_node_mysql_mysqluser_bullseye: root
 munin_node_mysql_mysqluser_buster: root
 munin_node_mysql_mysqluser_stretch: debian-sys-maint
