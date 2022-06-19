@@ -5,7 +5,7 @@ galaxy_info:
   description: role to maintain and configure munin node
   company: systemli.org
   license: GPLv3
-  min_ansible_version: 2.0
+  min_ansible_version: "2.0"
   platforms:
     - name: Debian
       versions:
@@ -14,6 +14,4 @@ galaxy_info:
   galaxy_tags:
     - monitoring
     - system
-  notifications:
-    webhooks: https://galaxy.ansible.com/api/v1/notifications/
 dependencies: []
