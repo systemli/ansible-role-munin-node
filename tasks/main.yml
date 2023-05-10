@@ -1,53 +1,53 @@
 ---
-- name: ensure required packages are installed
-  apt:
+- name: Ensure required packages are installed
+  ansible.builtin.apt:
     pkg: "{{ munin_node_packages }}"
     state: present
     cache_valid_time: 600
 
-- name: ensure config is latest
-  template:
+- name: Ensure config is latest
+  ansible.builtin.template:
     src: munin-node.conf.j2
     dest: /etc/munin/munin-node.conf
-    mode: 0644
-  notify: restart munin-node
+    mode: "0644"
+  notify: Restart munin-node
 
-- name: ensure plugin config is latest
-  template:
+- name: Ensure plugin config is latest
+  ansible.builtin.template:
     src: munin-node.j2
     dest: /etc/munin/plugin-conf.d/munin-node
-    mode: 0644
-  notify: restart munin-node
+    mode: "0644"
+  notify: Restart munin-node
 
-- name: ensure extra plugins are present
-  git:
+- name: Ensure extra plugins are present
+  ansible.builtin.git:
     repo: https://github.com/munin-monitoring/contrib
     dest: /usr/local/share/munin-plugins
     update: "{{ munin_node_plugins_git_update }}"
     version: "{{ munin_node_plugins_git_version }}"
   when: munin_node_extra_plugins
-  notify: restart munin-node
+  notify: Restart munin-node
 
-- name: ensure plugins are present
-  file:
+- name: Ensure plugins are present
+  ansible.builtin.file:
     src: "/usr/share/munin/plugins/{{ item }}"
     dest: "/etc/munin/plugins/{{ item }}"
     state: link
     force: yes
   with_items: "{{ munin_node_plugins_active }}"
-  notify: restart munin-node
+  notify: Restart munin-node
 
-- name: ensure plugins are absent
-  file:
+- name: Ensure plugins are absent
+  ansible.builtin.file:
     path: "/etc/munin/plugins/{{ item }}"
     state: absent
     force: yes
   with_items: "{{ munin_node_plugins_disabled }}"
-  notify: restart munin-node
+  notify: Restart munin-node
 
-- name: ensure extra plugins are present
-  file:
+- name: Ensure extra plugins are present
+  ansible.builtin.file:
     src: "/usr/local/share/munin-plugins/plugins/{{ item.path }}"
     dest: "/etc/munin/plugins/{{ item.name }}"
   with_items: "{{ munin_node_extra_plugins_active }}"
-  notify: restart munin-node
+  notify: Restart munin-node
