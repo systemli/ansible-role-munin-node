@@ -13,11 +13,11 @@ on:
     # * is a special character in YAML so you have to quote this string
     # first of each month
     - cron: "0 0 1 * *"
-  workflow_dispatch:
 
 jobs:
   integration:
     name: Integration
-    uses: systemli/github-ansible-workflow/.github/workflows/ansible-integration-workflow.yaml@v1.2.0
+    uses: systemli/github-ansible-workflow/.github/workflows/ansible-integration-workflow.yaml@v1.2.3
     with:
-      distros: '[ "debian11", "debian10" ]'
+      disable-apparmor-mysql: true
+      distros: '[ "debian12", "debian11" ]'

@@ -10,7 +10,7 @@ galaxy_info:
     - name: Debian
       versions:
         - bullseye
-        - buster
+        - bookworm
   galaxy_tags:
     - monitoring
     - system
